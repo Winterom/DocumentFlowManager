@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DocumentFlowManager.iml" filepath="$PROJECT_DIR$/DocumentFlowManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ng-front.iml" filepath="$PROJECT_DIR$/ng-front.iml" />
     </modules>
   </component>
 </project>

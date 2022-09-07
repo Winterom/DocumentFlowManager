@@ -1,0 +1,30 @@
+server:
+  port: 8182
+  servlet:
+    context-path: /auth
+
+springdoc:
+  swagger-ui:
+    path: /swagger/swagger-ui.html
+  api-docs:
+    path: /api/v1/api-docs
+
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/doc_flow
+    username: postgres
+    password: London8793
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+
+  liquibase:
+    change-log: classpath:db/changelog/master.yaml
+    enabled: true
+jwt:
+  secret: TXqgStgiwEc16r7M8csn55pFotV0tdp+TzzVATUVn5gTLhT8BAE9kpmc/vVvt3IiirL3lXtj8WA2darXR90Wmg==
+  lifetime: 36000000

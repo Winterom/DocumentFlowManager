@@ -1,0 +1,42 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods:
+              - GET
+              - POST
+            allowedHeaders: "*"
+      routes:
+        - id: documents-service
+          uri: http://localhost:8181
+#          Включить для сборки docker-compose
+#          uri: http://core-service:8181
+          predicates:
+          - Path=/documents/**
+          filters:
+            - StripPrefix=1
+            - JwtAuthFilter
+            - PrefixPath=/web-core
+
+
+        - id: auth-service
+          uri: http://localhost:8182
+#          Включить для сборки docker-compose
+#          uri: http://auth-service:8182
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+            - PrefixPath=/auth
+            - JwtAuthFilter
+
+jwt:
+  secret: TXqgStgiwEc16r7M8csn55pFotV0tdp+TzzVATUVn5gTLhT8BAE9kpmc/vVvt3IiirL3lXtj8WA2darXR90Wmg==
