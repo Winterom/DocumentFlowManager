@@ -1,0 +1,17 @@
+<div class="toast alert"
+     [ngClass]="{
+  'alert.alert-success': data.type==='success',
+  'alert.alert-info': data.type==='info',
+  'alert.alert-warning': data.type==='warning',
+  'alert.alert-danger': data.type==='danger'
+  }">
+  <div class="toast-title">
+    <div class="title">{{data.title}}</div>
+    <div class="close-btn">
+      <input type="checkbox">
+    </div>
+  </div>
+  <div class="toast-message">
+    {{data.text}}
+  </div>
+</div>

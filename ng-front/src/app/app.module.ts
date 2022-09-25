@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HttpClientModule} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {DefaultModule} from "./layouts/default/default.module";
 import { LoginComponent } from './modules/login/login.component';
-import {AppUserService} from "./service/user/app-user.service";
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {AuthInterceptorService} from "./intercepters/auth-interceptor.service";
+import {authInterceptorProviders} from "./intercepters/auth-interceptor.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -18,11 +17,13 @@ import {AuthInterceptorService} from "./intercepters/auth-interceptor.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DefaultModule
+    DefaultModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
-    AppUserService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -13,12 +13,16 @@ export class AuthApiService extends CommonApi{
   private _serviceProfileApi = 'auth/api/v1/profiles'
   private _login = '/login';
   private _register = '/register';
+  private _refresh ='/refresh'
   private _getAllUser = '/users';
   private _getProfile = '/current/';
   private _updateOrSave = '/update';
   private _getUserInfo = '/profile';
 
 
+  get refresh():string{
+    return super.API_ROOT+this._serviceAuthApi+this._refresh;
+  }
   get login(): string {
     return super.API_ROOT+this._serviceAuthApi+this._login;
   }

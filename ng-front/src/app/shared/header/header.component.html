@@ -1,1 +1,20 @@
-<p>header works!</p>
+<div class="container">
+  <div class="navbar-left">
+    <div class="sidebar-button">
+      <div>
+      <img [class.rotate]="ifShowSidebar"  src="assets/images/icons/justify.svg" (click)="showSidebar()">
+    </div>
+      <div>Делопроизводство</div>
+    </div>
+  </div>
+  <div class="navbar-right">
+    <div class="navbar-menu">
+    <ul class="list-item">
+      <li><app-mail-widget></app-mail-widget></li>
+      <li><app-event-widget></app-event-widget></li>
+      <li><app-chat-widget></app-chat-widget></li>
+      <li><img src="assets/images/icons/power.svg" (click)="logout()"></li>
+    </ul>
+  </div>
+  </div>
+</div>

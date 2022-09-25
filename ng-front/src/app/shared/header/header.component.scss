@@ -1,0 +1,48 @@
+img{
+  cursor: pointer;
+  opacity: 0.4
+}
+
+img:hover{
+  opacity: 1;
+}
+.container{
+  border-color: #395bb6;
+  width: 100%;
+  margin: 0;
+  background: #2D3541;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 12;
+  padding: 0 10px;
+  border-bottom: 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.rotate{
+  transform: rotate(90deg);
+  transition:0.5s;
+}
+.navbar-left{
+  color: #fff;
+  font-size: 1.2rem;
+}
+.navbar-left img{
+  margin-right: 10px;
+
+}
+.sidebar-button{
+  display: flex;
+  align-items: center;
+}
+.list-item{
+  vertical-align: middle;
+  list-style-type: none;
+}
+.list-item li{
+  display: inline;
+  margin-right: 15px;
+}

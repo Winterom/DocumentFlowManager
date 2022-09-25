@@ -1,1 +1,58 @@
-<p>login works!</p>
+
+  <div class="auth_div">
+    <div class="card">
+      <div class="auth_brand">
+        <img src="assets/images/login.jpg" alt=" ">
+        <span>Документооборот</span>
+      </div>
+      <div class="body">
+        <form *ngIf="isLoginForm" class="form-center"
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate>
+          <div class="form-group">
+            <input type="email" class="form-control round"
+                   placeholder="Email"
+                   name="email"
+                   [(ngModel)]="form.email"
+                   required
+                   #email="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && email.errors }"/>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control round"
+                   placeholder="Пароль"
+                   name="password"
+                   [(ngModel)]="form.password"
+                   required
+                   #password="ngModel"
+                   [ngClass]="{ 'is-invalid': f.submitted && password.errors }"/>
+          </div>
+          <div class="form-group">
+              <input type="checkbox" class="fun-checkbox" formControlName = "rememberMe">
+              <span>Запомнить</span>
+          </div>
+          <div class="div-button">
+          <button type="submit" class="btn-primary btn-round btn-medium">Войти</button>
+          </div>
+          <div class="bottom">
+             <a (click)="changeForm()">Забыли пароль?</a>
+          </div>
+        </form>
+        <div *ngIf="!isLoginForm" class="message">Укажите электронную почту аккаунта, для которого хотите восстановить пароль и следуйте инструкциям в письме которое будет отправлено на эту почту</div>
+        <form *ngIf="!isLoginForm" class="form-center">
+          <div class="form-group">
+            <input type="email" class="form-control round" id="signin-email"
+                   placeholder="Email">
+          </div>
+          <div class="div-button">
+            <button type="submit" class="btn-primary btn-round btn-medium">Отправить</button>
+          </div>
+        </form>
+        <div *ngIf="!isLoginForm" class="bottom">
+          <a (click)="changeForm()">Я вспомнил!</a>
+        </div>
+      </div>
+    </div>
+  </div>
